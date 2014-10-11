@@ -81,8 +81,8 @@ class client(da.DistProcess):
                 _st_label_34 -= 1
 
     def setup(self, head, tail):
-        self.tail = tail
         self.head = head
+        self.tail = tail
         pass
 
     def _client_handler_3(self, child):
@@ -110,7 +110,8 @@ def main():
     for index in range(0, 10):
         da.api.start(serverList[index])
     head = serverList[0]
-    tail = serverList[9]
+    tail = serverList[(len(serverList) - 1)]
+    print('tailllllll = ', tail)
     customer = da.api.new(client, num=1)
     da.api.setup(customer, (head, tail))
     da.api.start(customer)

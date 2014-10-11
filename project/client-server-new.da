@@ -73,7 +73,8 @@ def main():
 		start(serverList[index])
 
 	head = serverList[0]
-	tail = serverList[9]
+	tail = serverList[len(serverList)-1]
+	print('tailllllll = ',tail);
 	customer = new(client,num=1)
 	setup(customer,(head,tail))
 	start(customer)
