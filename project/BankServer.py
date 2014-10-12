@@ -1,25 +1,31 @@
-from Accounts import *
+from Accounts import * 
 class BankServer:
 
-	accounts = None
-	processObj = None
-	nextServer = None;
-
 	def __init__(self,processObj):
-		accounts = Accounts()
+		#print('new bank server object created')
+		self.accounts = Accounts()
 		self.processObj = processObj
+		self.nextServer = None
 
 	def withdrawMoney(self,accountNumber,amount):
-		accounts.withdrawMoney(accountNumber,amount)
+		self.accounts.withdrawMoney(accountNumber,amount)
 
 	def depositMoney(self,accountNumber,amount):
-		accounts.depositMoney(accountNumber,amount)
+		self.accounts.depositMoney(accountNumber,amount)
+		#print('head server map = ',self.getAccountMap())
 
 	def getBalance(self,accountNumber):
-		accounts.getBalance(accountNumber)
+		self.accounts.getBalance(accountNumber)
 
 	def getProcessObject(self):
-		return processObj
+		#print('type of process object ',self.processObj)
+		return self.processObj
 
 	def addNextServer(self,nextServer):
 		self.nextServer = nextServer
+
+	def getNextServer(self):
+		return self.nextServer 
+
+	def getAccountMap(self):
+		return self.accounts.getAccMap()

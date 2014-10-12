@@ -1,6 +1,4 @@
 class Account:
-	accountNumber = 0
-	accountBalance = 0
 
 	def __init__(self,accountNumber):
 		self.accountNumber = accountNumber

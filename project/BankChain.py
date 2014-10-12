@@ -11,10 +11,9 @@ class BankChain:
 		self.serverMap = {}
 
 	def createChain(self,chainArr,name):
-		print('Enters chain')
 
 		self.bankServers = list(chainArr)
-		print("bank servers = ",self.bankServers)
+
 		length = len(chainArr)
 		self.length = length
 		self.serverMap[name]={}
@@ -23,8 +22,6 @@ class BankChain:
 		for serverProcess in self.bankServers:
 			server = BankServer(serverProcess) 
 			bankServerArr.append(server)
-
-		print(len(bankServerArr))
 
 		for i in range(length - 2 ):
 			bankServerArr[i].addNextServer(bankServerArr[i+1])
@@ -38,10 +35,10 @@ class BankChain:
 		return self.serverMap[name]['allServers']
 
 	def getHeadServer(self,name):
-		return serverMap[name]['head']
+		return self.serverMap[name]['head']
 
 	def getTailServer(self,name):
-		return serverMap[name]['tail']
+		return self.serverMap[name]['tail']
 
 
 

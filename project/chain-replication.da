@@ -1,39 +1,179 @@
-from BankChain import *
-from BankServer import *
-class server(process):
-	def setup():
-		await(False)
-		pass
 
-	#def 
+
+serverName = 'abcde'
+import time
+class Account:
+
+	def __init__(self,accountNumber):
+		self.accountNumber = accountNumber
+		self.accountBalance = 0
+
+	def depositMoney(self,amount):
+		self.accountBalance = self.accountBalance + amount;
+
+	def withdrawMoney(self,amount):
+		self.accountBalance = self.accountBalance - amount;
+
+	def getBalance(self):
+		return self.accountBalance
+
+class Accounts:
+
+	def __init__(self):
+		self.accountMap = {}
+	
+	def isAccountPresent(self,accountNumber):
+		if not accountNumber in self.accountMap:
+			print('Account {} not present. Creating a new account. '.format(accountNumber))
+			acc = Account(accountNumber);
+			self.accountMap[accountNumber] = acc;
+
+	def setAccountMap(self,accountMap):
+		self.accountMap = accountMap
+
+	def getAccountObject(self,accountNumber):
+		self.isAccountPresent(accountNumber)
+		acc = self.accountMap[accountNumber]
+		return acc
+
+	def withdrawMoney(self,accountNumber,amount):
+		acc = self.getAccountObject(accountNumber)
+		if(acc.getBalance() > amount):
+			acc.withdrawMoney(amount)
+
+		print('Money {} withdrawn from account number {} '.format(amount,accountNumber))
+
+		return acc.getBalance()
+
+	def depositMoney(self,accountNumber,amount):
+		acc = self.getAccountObject(accountNumber)
+		acc.depositMoney(amount)
+		balance =  acc.getBalance()
+		print('Money {} deposited - acc no {}. Balance is {} '.format(amount,accountNumber,balance))
+		return balance
+
+	def getBalance(self,accountNumber):
+		acc = self.getAccountObject(accountNumber)
+		return acc.getBalance()
+
+
+class BankServer(process):
+		
+	def setup(accounts,nextServer):
+		pass
 
 	def main():
-		pass
+		await(False)
 
+	def receive(msg=('query',accountNumber),from_=node):
+		balance = getBalance(accountNumber)
+		send(('balance',balance),to=node);
+
+	def receive(msg=('update',accountNumber,amount,updateType),from_=node):
+		self.updateRequest(accountNumber,amount,node,updateType)
+
+	def receive(msg=('update',accountNumber,amount,updateType,clientNode),from_=node):
+		self.updateRequest(accountNumber,amount,clientNode,updateType)
+		
+	def updateRequest(accountNumber,amount,clientNode,updateType):
+		print('Deposit request received by the server')
+		balance = 0;
+		if updateType == "deposit":
+			balance = depositMoney(accountNumber,amount)
+		else: 
+			balance = withdrawMoney(accountNumber,amount)
+
+		if nextServer is None:
+			node = clientNode
+
+			send(('updateDone',balance),to=node)
+		else:
+			node = nextServer
+			send(('update',accountNumber,amount,updateType,clientNode),to=node)	
+
+	def withdrawMoney(accountNumber,amount):
+		return accounts.withdrawMoney(accountNumber,amount)
+
+	def depositMoney(accountNumber,amount):
+		return accounts.depositMoney(accountNumber,amount)
+
+	def getBalance(accountNumber):
+		return accounts.getBalance(accountNumber)
+
+	
 class client(process):
-	def setup():
-		await(False)
-		pass
+	def setup(head,tail,bankName):
+		if not hasattr('self','bankServerMap'):
+			self.bankServerMap = {}
 
+		if bankName not in self.bankServerMap:
+			self.bankServerMap[bankName] = {}
+			self.bankServerMap[bankName]['head'] = head
+			self.bankServerMap[bankName]['tail'] = tail
 
+	def updateMoney(accountNumber,bankName,amount,updateType):
+		node = self.bankServerMap[bankName]['head']
+		send(('update',accountNumber,amount,updateType),to=node)
+
+	def getBalance(accountNumber,bankName):
+		node = self.bankServerMap[bankName]['tail']
+		send(('query',accountNumber),to=node)
+
+	def receive(msg=('balance',balance),from_=node):
+		print('Balance Query Processed. Current balance = {} '.format(balance))
+
+	def receive(msg=('updateDone',balance),from_=node):
+		print('Withdraw/Deposit Done. Final balance = {} '.format(balance))
 
 	def main():
-		pass
+		print('Client process started')
+		updateMoney(12345,serverName,1000,"deposit")
+		updateMoney(12345,serverName,2000,"deposit")
+		updateMoney(12345,serverName,3000,"deposit")
+		updateMoney(12345,serverName,1500,"withdraw")
+
+		time.sleep(1)
+		getBalance(12345,serverName)
+		# getBalance(12345,serverName)
+		# getBalance(12345,serverName)
+		# getBalance(12345,serverName)
+
+		await(False)
+		
 
 def main():
 	serverCount = 10;
 	
 	serverList = []
-
-	for index in range(0,10):
-		serverVar = new(server,num=1)
+	for index in range(serverCount):
+		serverVar = new(BankServer,num=1)
 		serverList.append(serverVar)
 
+	for i in range(serverCount-1):
+		el = serverList[i]
+		nextEl = serverList[i+1]
+		setup(el,(Accounts(),nextEl))
+
+	setup(serverList[serverCount-1],(Accounts(),None))
+	head = serverList[0]
+	tail = serverList[serverCount-1]
+	# bankChain = BankChain()
+	# bankChain.createChain(serverList,serverName)
+
+	
+	# head = bankChain.getHeadServer(serverName)
+	# tail = bankChain.getTailServer(serverName)
+
 	print(serverList)
+	for el in serverList:
+		start(el)
+	
 
-	bankChain = BankChain()
-	bankChain.createChain(serverList,'abcde')
-	allServers = bankChain.getAllServers('abcde')
+	#bankChainMap[serverName] = bankChain
 
-
+	customer = new(client,num=1)
+	setup(customer,(head,tail,serverName))
+	start(customer)
+	
 	print('No Problem till here')
+
