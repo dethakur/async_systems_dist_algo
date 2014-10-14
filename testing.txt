@@ -1,0 +1,29 @@
+The testcases can be run by changing the project/config.json file.
+
+The log file in project/chain-replication.da.log 
+
+The config file can be passed from command line using the below command
+
+python3 -m da -f project/chain-replication.da project/config.json
+
+"clients": [
+        {
+          "ip_address": "IP address",
+          "operation": [
+            {
+              "type": "random (can be random or getDeposit,getBalance and withdraw)",
+              "amount": "random (can be integer)",
+              "request_id": "random (can be integer)",
+              "accountNumber": "random (can be integer)"
+            }
+          ]
+        }
+      ]
+
+Duplicate transaction were done by putting the same request_id for multiple requests withing the same client.
+
+InSufficient funds was tested by giving type = "withdraw" and an amount more than the balance.
+
+Inconsistent request was tested by keeping the same request id for the same client but changing the type of request
+
+Different type of transaction was tested by changing the "type" in JSON structure for each client.

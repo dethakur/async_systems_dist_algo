@@ -1,0 +1,728 @@
+{
+  "config": [
+    {
+      "bank_name": "ICICI",
+      "length_of_chain": 6,
+      "number_of_clients": 6,
+      "startUpDelay":3,
+      "clients": [
+        {
+          "ip_address": "1.1.1.1",
+          "operation": [
+            {
+              "type": "random",
+              "amount": "random",
+              "request_id": "random",
+              "accountNumber": "random"
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            },
+            {
+              "type": "getBalance",
+              "request_id": 1,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "2.2.2.2",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "3.3.3.3",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "4.4.4.4",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "5.5.5.5",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "2.2.2.2",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bank_name": "ICICI",
+      "length_of_chain": 6,
+      "number_of_clients": 6,
+      "clients": [
+        {
+          "ip_address": "1.1.1.1",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "2.2.2.2",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "3.3.3.3",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "4.4.4.4",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "5.5.5.5",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "2.2.2.2",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bank_name": "ICICI",
+      "length_of_chain": 6,
+      "number_of_clients": 6,
+      "clients": [
+        {
+          "ip_address": "1.1.1.1",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "2.2.2.2",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "3.3.3.3",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "4.4.4.4",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "5.5.5.5",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "2.2.2.2",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bank_name": "ICICI",
+      "length_of_chain": 6,
+      "number_of_clients": 6,
+      "clients": [
+        {
+          "ip_address": "1.1.1.1",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "2.2.2.2",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "3.3.3.3",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "4.4.4.4",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "5.5.5.5",
+          "operation": [
+            {
+              "type": "getBalance",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        },
+        {
+          "ip_address": "2.2.2.2",
+          "operation": [
+            {
+              "type": "deposit",
+              "amount": 1000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 2,
+              "accountNumber": 2345
+            },
+            {
+              "type": "deposit",
+              "amount": 2000,
+              "request_id": 1,
+              "accountNumber": 2345
+            },
+            {
+              "type": "withdraw",
+              "amount": 500,
+              "request_id": 4,
+              "accountNumber": 2345
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
