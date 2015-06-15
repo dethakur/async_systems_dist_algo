@@ -52,4 +52,4 @@ The delay is common for client and server. Individual delay for each client and 
 
 CONTRIBUTION
 
-The algorithm was written together and implementation was discussed in two langauges. The actual code in python is written by Devashish and the code in Elixir is written by Kaushik. The roles will be reversed in Phase 3.
+The algorithm was written together and implementation was discussed in two langauges. The actual code in python is written by Devashish and the code in Elixir is written by Kaushik.
